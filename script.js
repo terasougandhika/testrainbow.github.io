@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Message sent successfully!');
                     this.reset(); // Reset the form
                 } else {
-                    alert('Message sent successfully!');
+                    alert('Message was not sent. Try Again!');
                 }
             })
-            .catch(error => {
-                alert('There was an error sending your message.');
-                console.error('Error:', error);
-            });
+           // .catch(error => {
+              // alert('There was an error sending your message.');
+               // console.error('Error:', error);
+            //});
         });
     }
 });
