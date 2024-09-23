@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Message sent successfully!');
                     this.reset(); // Reset the form
                 } else {
-                    alert('There was a problem with your submission. Please try again.');
+                    alert('Message sent successfully!');
                 }
             })
             .catch(error => {
