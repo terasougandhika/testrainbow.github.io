@@ -12,22 +12,26 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalItems = 0;
         let totalPrice = 0;
 
-        cartItems.forEach(item => {
-            totalItems += 1; // Counting each item once
-            totalPrice += parseFloat(item.price);
+        if (cartItems.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+            cartItems.forEach(item => {
+                totalItems += 1; // Counting each item once
+                totalPrice += parseFloat(item.price);
 
-            const cartItem = document.createElement('div');
-            cartItem.className = 'cart-item';
-            cartItem.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                <div class="cart-item-details">
-                    <h3>${item.name}</h3>
-                    <p class="cart-item-price">$${item.price}</p>
-                    <button class="btn remove-btn" data-id="${item.id}">Remove</button>
-                </div>
-            `;
-            cartItemsContainer.appendChild(cartItem);
-        });
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <p class="cart-item-price">$${item.price}</p>
+                        <button class="btn remove-btn" data-id="${item.id}">Remove</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
 
         totalItemsElement.textContent = totalItems;
         totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
@@ -48,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartItems.push(item);
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
                 alert('Item added to cart!');
+                updateCartSummary(); // Update summary immediately
             });
         });
     }
@@ -68,11 +73,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Checkout button functionality (redirect to checkout page)
+    // Checkout button functionality
     const checkoutButton = document.querySelector('.checkout-btn');
     if (checkoutButton) {
         checkoutButton.addEventListener('click', () => {
             window.location.href = 'checkout.html'; // Replace with actual checkout page URL
+        });
+    }
+
+    // Contact form submission
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    this.reset(); // Reset the form
+                } else {
+                    alert('There was a problem with your submission. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('There was an error sending your message.');
+                console.error('Error:', error);
+            });
         });
     }
 });
