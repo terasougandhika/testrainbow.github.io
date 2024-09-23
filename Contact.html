@@ -28,24 +28,16 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-container">
-            <div class="contact-info">
-                <h3>Our Address</h3>
-                <p>123 Flower Street, Bloomville, FL 54321</p>
-                <h3>Phone</h3>
-                <p>(123) 456-7890</p>
-                <h3>Email</h3>
-                <p>info@flowershop.com</p>
-            </div>
             <div class="contact-form">
-                <div class="contact-form">
-                    <form action="mail_handler.php" method="POST">
-                        FullName: <input type="text" name="full_name"><br>
-                        Email: <input type="text" name="email"><br>
-                        Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
-                        <input type="submit" name="submit" value="Submit">
-                    </form>
-                </div>
-                
+                <form action="https://formspree.io/f/xnnakokq" method="POST">
+                    <label for="email">Your email:</label>
+                    <input type="email" name="email" id="email" required>
+
+                    <label for="message">Your message:</label>
+                    <textarea name="message" id="message" required></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
             </div>
         </div>
     </section>
