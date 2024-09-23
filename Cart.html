@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Flower Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Flower Shop</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div class="cart-container" id="cart-items"></div>
+        <div class="cart-summary">
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Price: $<span id="total-price">0.00</span></p>
+            <button class="btn checkout-btn">Checkout</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Flower Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

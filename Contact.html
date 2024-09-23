@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Flower Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Flower Shop</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Our Address</h3>
+                <p>123 Flower Street, Bloomville, FL 54321</p>
+                <h3>Phone</h3>
+                <p>(123) 456-7890</p>
+                <h3>Email</h3>
+                <p>info@flowershop.com</p>
+            </div>
+            <div class="contact-form">
+                <div class="contact-form">
+                    <form action="mail_handler.php" method="POST">
+                        FullName: <input type="text" name="full_name"><br>
+                        Email: <input type="text" name="email"><br>
+                        Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
+                        <input type="submit" name="submit" value="Submit">
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Flower Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
